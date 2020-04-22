@@ -2,13 +2,23 @@ package com.java8.utils;
 
 public class Employee {
 
-    public Employee(String gender, String name) {
-        this.gender = gender;
-        this.name = name;
-    }
-
     private String gender;
     private String name;
+    private Address address;
+
+    public Employee(String gender, String name, Address address) {
+        this.gender = gender;
+        this.name = name;
+        this.address = address;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public String getGender() {
         return gender;
@@ -31,6 +41,7 @@ public class Employee {
         return "Employee{" +
                 "gender='" + gender + '\'' +
                 ", name='" + name + '\'' +
+                ", address=" + address +
                 '}';
     }
 }

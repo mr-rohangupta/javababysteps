@@ -10,10 +10,10 @@ public class StreamListIndexOperation {
     public static void main(String[] args) {
         StreamListIndexOperation streamListIndexOperation = new StreamListIndexOperation();
         List<com.java8.utils.Employee> employeeList = new ArrayList<>();
-        employeeList.add(new com.java8.utils.Employee("Male", "Rohan"));
-        employeeList.add(new com.java8.utils.Employee("Female", "Disha"));
-        employeeList.add(new com.java8.utils.Employee("Male", "Nilesh"));
-        employeeList.add(new com.java8.utils.Employee("Male", "Suresh"));
+        employeeList.add(new com.java8.utils.Employee("Male", "Rohan",null));
+        employeeList.add(new com.java8.utils.Employee("Female", "Disha",null));
+        employeeList.add(new com.java8.utils.Employee("Male", "Nilesh",null));
+        employeeList.add(new com.java8.utils.Employee("Male", "Suresh",null));
         System.out.println("The Nth Employee is " + streamListIndexOperation.getNthEmployee(employeeList, 2));
     }
 
