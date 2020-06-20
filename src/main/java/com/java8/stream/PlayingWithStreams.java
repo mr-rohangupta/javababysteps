@@ -2,7 +2,7 @@ package com.java8.stream;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.util.Pair;
+import org.javatuples.Pair;
 
 import java.io.IOException;
 import java.util.function.Function;
@@ -15,11 +15,11 @@ public class PlayingWithStreams
 	public static Function<Pair<String, String>, String>
 			getUpdatedValue = Pair -> {
 		String updatedValue = "";
-		if (Pair.getKey().contains("'" + Pair.getValue() + "'"))
+		if (Pair.getValue0().contains("'" + Pair.getValue1() + "'"))
 		{
 			return updatedValue;
 		}
-		return Pair.getValue();
+		return Pair.getValue1();
 	};
 
 
@@ -31,7 +31,7 @@ public class PlayingWithStreams
 				                   "    \"id\": \"250\",\n" +
 				                   "    \"Rules\": [\n" +
 				                   "      {\n" +
-				                   "        \"orgName\": \"'Rohan','Komal','Rinkesh'\"\n" +
+				                   "        \"orgName\": \"'Rohan','Kamal','Rinkesh'\"\n" +
 				                   "      },\n" +
 				                   "      {\n" +
 				                   "      }\n" +
@@ -47,7 +47,7 @@ public class PlayingWithStreams
 
 	public String readValues(String orgNames)
 	{
-		String usersInput = "Rahul";
+		String usersInput = "Rohan";
 		return Stream.of(orgNames)
 		             .map(element -> getUpdatedValue.apply(new Pair<>(orgNames, usersInput)))
 		             .collect(Collectors.joining());
