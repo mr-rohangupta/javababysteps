@@ -7,26 +7,22 @@ import java.util.stream.Collectors;
 
 public class CollectionApiChangesDemo {
     public static void main(String[] args) {
-        List<String> actors = new ArrayList<>();
-        actors.add("Jack Nicholson");
-        actors.add("Marlon Brando");
-        System.out.println(actors); // prints [Jack Nicholson, Marlon Brando]
-// New API added - Creates an UnModifiable List from a List.
-        List<String> copyOfActors = List.copyOf(actors);
-        System.out.println("Copy Of Actors::" + copyOfActors);
+        List<String> javaVersions = new ArrayList<>();
+        javaVersions.add("Java 8");
+        javaVersions.add("Java 9");
+        System.out.println("Java Versions ::" + javaVersions);
+        List<String> copyOfJavaVersions = List.copyOf(javaVersions);
+        System.out.println("Copy Of Actors::" + copyOfJavaVersions);
 
-        actors.add("Robert De Niro");
-        System.out.println(actors);// prints [Jack Nicholson, Marlon Brando, Robert De Niro]
-        System.out.println(copyOfActors); // prints [Jack Nicholson, Marlon Brando]
+        javaVersions.add("Java 10");
+        System.out.println(javaVersions);
+        System.out.println(copyOfJavaVersions);
 
         String str = "";
         Optional<String> name = Optional.ofNullable(str);
-// New API added - is preferred option then get() method
-        name.orElseThrow(); // same as name.get()
+        name.orElseThrow();
 
-// New API added - Collectors.toUnmodifiableList
-        List<String> collect = actors.stream().collect(Collectors.toUnmodifiableList());
-// collect.add("Tom Hanks"); // Will generate an
-// UnsupportedOperationException
+        List<String> unmodifiableList = javaVersions.stream().collect(Collectors.toUnmodifiableList());
+        unmodifiableList.add("Java 14");
     }
 }
